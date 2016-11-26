@@ -517,20 +517,8 @@ def battleship():
         print_board(c_board)
     def c_guess():
         hom = 0
-        while 1 < 2:
-            c_guess_row = random.randint(1, 10)
-            c_guess_col = random.randint(1, 10)
-            if p_board[c_guess_row - 1][c_guess_col - 1] != "X" and p_board[c_guess_row - 1][c_guess_col - 1] != "M":
-                if c_guess_row == 10 and c_guess_col == 10:
-                    h = 0
-                elif c_guess_row == 10 and c_guess_col == 1:
-                    h = 0
-                elif c_guess_row == 1 and c_guess_col == 10:
-                    h = 0
-                elif c_guess_row == 1 and c_guess_col == 1:
-                    h = 0
-                else:
-                    break
+        c_guess_row = random.randint(1, 10)
+        c_guess_col = random.randint(1, 10)
         row = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
         col = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
         for x in row:
@@ -740,8 +728,8 @@ def battleship():
 
 
 
-                # if it is on the LOWER edge
-                if x == 9 and y != 0 and y != 9:
+                    # if it is on the LOWER edge
+                    if x == 9 and y != 0 and y != 9:
                         # if the space below was a miss, and the others haven't been guessed
                         if p_board[x - 1][y] != "X" and p_board[x][y + 1] != "X" and p_board[x][y + 1] != "M" and p_board[x][y - 1] != "X":
                             # guess the space to the right
@@ -805,8 +793,8 @@ def battleship():
 
 
 
-                # if it is on the RIGHT edge
-                if y == 9 and x != 0 and x != 9:
+                    # if it is on the RIGHT edge
+                    if y == 9 and x != 0 and x != 9:
                     # if the spaces around have not been hits, guess the space below
                         if p_board[x + 1][y] != "X" and p_board[x + 1][y] != "M" and p_board[x - 1][y] != "X" and p_board[x][y - 1] != "X":
                             c_guess_row = x + 2
